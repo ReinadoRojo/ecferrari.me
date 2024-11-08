@@ -1,27 +1,15 @@
 ---
 import Base from "../../layouts/Base.astro";
+import type { Project } from "./types.d";
 
-const projects = [
+const projects: Project[] = [
   {
     title: "Project One",
     year: 2023,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam veritatis dolorem rem praesentium dicta labore, at laudantium quisquam.",
     url: "https://example.com/",
-  },
-  {
-    title: "Project Two",
-    year: 2022,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam veritatis dolorem rem praesentium dicta labore, at laudantium quisquam.",
-    url: "https://example.com/",
-  },
-  {
-    title: "Project Three",
-    year: 2021,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam veritatis dolorem rem praesentium dicta labore, at laudantium quisquam.",
-    url: "https://example.com/",
+    tech: ["TypeScript", "React", "NestJS", "TailwindCSS", "Vercel", "Drizzle", "SQLite"],
   },
 ];
 
@@ -52,6 +40,15 @@ const description = "My Projects";
               <p class="prose prose-neutral dark:prose-invert pt-3">
                 {project.description}
               </p>
+              <div class="flex flex-wrap mt-3">
+                {
+                  project.tech.map((tech) => (
+                    <span class="text-neutral-600 dark:text-neutral-400 text-sm mr-2 hover:text-black dark:hover:text-white transition-colors duration-200">
+                      {tech}
+                    </span>
+                  ))
+                }
+              </div>
             </div>
           </a>
         ))
